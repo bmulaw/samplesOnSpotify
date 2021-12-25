@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios'
 
 export default function useAuth(code) {
@@ -11,9 +11,9 @@ export default function useAuth(code) {
             code,
         })
         .then(res => {
-            setAccessToken(res.data.access_token);
-            setRefreshToken(res.data.refresh_token);
-            setExpiresIn(res.data.expires_in);
+            setAccessToken(res.data.accessToken);
+            setRefreshToken(res.data.refreshToken);
+            setExpiresIn(res.data.expiresIn);
             window.history.pushState({}, null, '/')
         })
         .catch(() => {
