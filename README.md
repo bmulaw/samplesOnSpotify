@@ -1,3 +1,3 @@
 # spotify_clone
 
-React, Express, Node
+Express, React, Node
