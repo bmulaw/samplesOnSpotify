@@ -1,3 +1,3 @@
 # spotify_clone
 
-practice project
+React, Express, Node
