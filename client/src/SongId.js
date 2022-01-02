@@ -1,5 +1,7 @@
+import config from './config'
 export default function SongId (currentPlayingMusic) {
     var axios = require("axios").default;
+    const API_KEY = config();
 
     var options = {
         method: 'GET',
@@ -7,7 +9,7 @@ export default function SongId (currentPlayingMusic) {
         params: {q: currentPlayingMusic},
         headers: {
             'x-rapidapi-host': 'genius.p.rapidapi.com',
-            'x-rapidapi-key': 'dfcaddd723msh6b216a6f6b60baep1fb122jsn29391c842471'
+            'x-rapidapi-key': API_KEY
         }
     };
     return axios.request(options);
