@@ -1,3 +1,3 @@
-# spotify_clone
+# Sample app using Spotify
 
 Express, React, Node

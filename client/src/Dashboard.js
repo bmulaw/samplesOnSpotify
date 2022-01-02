@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import useAuth from './useAuth';
 import TrackSearchResult from './TrackSearchResult';
 import Player from './Player';
+import Samples from './Samples';
 import { Container, Form } from 'react-bootstrap';
 import SpotifyWebApi from 'spotify-web-api-node';
 
@@ -14,9 +15,14 @@ export default function Dashboard({ code }) {
     const [search, setSearch] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [playingTrack, setPlayingTrack] = useState([])
-    
-    function chooseTrack(track) {
+
+    const chooseTrack = (track) => {
         setPlayingTrack(track);
+        const samples = Samples(track)
+        if (samples !== undefined) {
+            console.log(samples);
+            setSearch(samples[0]);
+        }
     }
 
     useEffect(() => {
@@ -69,8 +75,9 @@ export default function Dashboard({ code }) {
                  {searchResults.map(track => (
                      <TrackSearchResult track={track} key={track.uri} chooseTrack={chooseTrack}/>
                  ))}
-             </div>
+        </div>
         <div> <Player accessToken={accessToken} trackUri={playingTrack?.uri}/> </div>
+        {/* <div> <Samples playingTrack={playingTrack}/> </div> */}
         </Container>
     )
 }
