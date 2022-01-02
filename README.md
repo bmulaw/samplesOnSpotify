@@ -17,10 +17,5 @@ Will ask you to sign in to Spotify and you can then search a song you want to li
 
 ## Demo of the app:
 listen to the first 10 seconds of Favorite Song by Chance the Rapper (2013) and the first 5 seconds of Clean Up Woman by Betty Wright (1972) to notice the Sample.
-<iframe src="https://open.spotify.com/embed/track/6uqTETWok9npbL4c9cuLVh?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-
-<iframe src="https://open.spotify.com/embed/track/1sFstGV1Z3Aw5TDFCiT7vK?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-
-[![Spotify](https://spotify-github-readme.vercel.app/api/spotify)](https://open.spotify.com/collection/tracks)
 
 <img src='./demo.gif' title='Video Walkthrough' width='920px' height='500px' alt='Video Walkthrough' />
