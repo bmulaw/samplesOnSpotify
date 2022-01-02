@@ -5,7 +5,7 @@ APIs: Spotify and Genuis
 
 ## To get the app running:
 
-1. make sure you have node.js installed(https://nodejs.org/en/)
+1. make sure you have node.js installed (https://nodejs.org/en/)
 2. git clone this repo
 3. cd into client and server folder and run `npm install` in terminal to install all dependencies
 4. in server folder, run `npm devStart`
