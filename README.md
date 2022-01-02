@@ -1,6 +1,6 @@
 # App that lets you play the samples of any song on Spotify
 
-Tech Stack: Express, React, and Node
+### Tech Stack: Express, React, and Node
 APIs: Spotify and Genuis
 
 ## To get the app running:
