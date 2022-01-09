@@ -20,3 +20,8 @@ Will require having a Spotify account.
 
 Will ask you to sign in to Spotify and you can then search a song you want to listen to. Once you play that song, the Samples should show up on the page and you can then play them. Currently, the app is only logging the Samples of a given song in the console.
 
+
+## Credits:
+1. Bernard Mulaw (Engineer)
+2. Bjoern Hasemann (Engineer)
+3. Della Lin (Engineer)
