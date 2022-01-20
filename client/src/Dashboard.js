@@ -7,7 +7,7 @@ import { Container, Form } from 'react-bootstrap';
 import SpotifyWebApi from 'spotify-web-api-node';
 
 const spotifyApi = new SpotifyWebApi({
-    clientId: "45c8cca7568346c09d2ae3e15488221c",
+    clientId: "9acdec0bb38146d59436f7773c7e835a",
 })
 
 export default function Dashboard({ code }) {
