@@ -12,7 +12,7 @@ listen to the first 10 seconds of Favorite Song by Chance the Rapper (2013) and 
 
 1. make sure you have node.js installed (https://nodejs.org/en/)
 2. git clone this repo
-3. cd into client and server folder and run `npm install` in terminal to install all dependencies
+3. cd into client and server folder and run `npm install` in terminal to install all dependencies (for server folder, also run `npm install -g nodemon`)
 4. in server folder, run `npm run devStart`
 5. in client folder, run `npm start`
 
