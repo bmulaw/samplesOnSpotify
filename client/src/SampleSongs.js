@@ -1,9 +1,11 @@
 import config from './config'
+
 export default function SampleSongs (songId) {
-    var axios = require("axios").default;
+    
+    let axios = require("axios").default;
     const API_KEY = config();
     
-    var options = {
+    const options = {
         method: 'GET',
         url: 'https://genius.p.rapidapi.com/songs/' + songId,
         headers: {
@@ -11,5 +13,6 @@ export default function SampleSongs (songId) {
             'x-rapidapi-key': API_KEY
         }
     };
+    
     return axios.request(options);
 }

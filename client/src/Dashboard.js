@@ -15,15 +15,22 @@ export default function Dashboard({ code }) {
     const [search, setSearch] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [playingTrack, setPlayingTrack] = useState([])
-
-    const chooseTrack = (track) => {
+    const [samplesFromPlayingTrack, setSampleFromPlayingTrack] = useState([])
+    
+    const chooseTrack = async (track) => {
         setPlayingTrack(track);
-        const samples = Samples(track)
+        const samples = await Samples(track)
+        console.log(samples)
         if (samples !== undefined) {
-            console.log(samples);
             setSearch(samples[0]);
         }
     }
+
+  const handleClick = () => {
+      if (playingTrack.length !== 0) {
+        console.log(`this is here ${playingTrack.artist} track`);
+      }
+  }
 
     useEffect(() => {
         if (!accessToken) return;
@@ -78,6 +85,11 @@ export default function Dashboard({ code }) {
         </div>
         <div> <Player accessToken={accessToken} trackUri={playingTrack?.uri}/> </div>
         {/* <div> <Samples playingTrack={playingTrack}/> </div> */}
+        
+            <button onClick={handleClick}>
+                See Samples
+            </button>
+        
         </Container>
     )
 }
