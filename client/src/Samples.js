@@ -5,6 +5,7 @@ export default function Samples( playingTrack ) {
     if (playingTrack == 'undefined undefined') return;
     let songTitle = playingTrack.title.replace(/\([^()]*\)/g, '');
     let currentPlayingMusic = songTitle + " " + playingTrack.artist;
+    let sampledSongs;
 
     const getCorrectSongId = (data) => {
         let index = 0;
@@ -24,22 +25,28 @@ export default function Samples( playingTrack ) {
         const relations = data.response.song.song_relationships;
         for (let i = 0; i < relations.length; i++) {
             for (let j = 0; j < relations[i].songs.length; j++) {
-                const cleanedSong = relations[i].songs[j].full_title.replace(' by', '').replace(/\([^()]*\)/g, '')
+                const cleanedSong = relations[i].songs[j].full_title.replace(' by', '').replace(/\([^()]*\)/g, '').replace('The ', '').toLowerCase();
                 songSamples.push(cleanedSong);
             }
         }
         return songSamples;
     }
+    // https://www.geeksforgeeks.org/how-to-make-javascript-wait-for-a-api-request-to-return/
+    // calls SongID component to get the song ID of current playing track
+        return new Promise(function (resolve, reject) {
+            SongId(currentPlayingMusic, songTitle)
+            .then((res) => {
+                const songId = getCorrectSongId(res.data.response.hits);
     
-    SongId(currentPlayingMusic, songTitle)
-        .then((res) => {
-            const songId = getCorrectSongId(res.data.response.hits);
-
-            // another API call to get the samples from this songID
-            SampleSongs(songId)
-            .then((data) => {
-                const samples = getSampledSongs(data.data)
-                console.log(samples)
-            })
-    });
+                // another API call to get the samples from this songID
+                SampleSongs(songId)
+                .then((data) => {
+                    sampledSongs = getSampledSongs(data.data);
+                    resolve(sampledSongs)
+                }, (error) => {
+                    reject(error);
+                })
+            });
+        })
+        
 }

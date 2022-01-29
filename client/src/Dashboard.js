@@ -16,21 +16,20 @@ export default function Dashboard({ code }) {
     const [searchResults, setSearchResults] = useState([]);
     const [playingTrack, setPlayingTrack] = useState([])
     const [samplesFromPlayingTrack, setSampleFromPlayingTrack] = useState([])
-    
+    let samples; 
+
     const chooseTrack = async (track) => {
         setPlayingTrack(track);
-        const samples = await Samples(track)
-        console.log(samples)
-        if (samples !== undefined) {
-            setSearch(samples[0]);
-        }
+        samples = await Samples(track)
+        setSampleFromPlayingTrack(samples)
     }
 
-  const handleClick = () => {
-      if (playingTrack.length !== 0) {
-        console.log(`this is here ${playingTrack.artist} track`);
-      }
-  }
+    const handleClick = () => {
+        if (playingTrack.length !== 0) {
+            setSearch(samplesFromPlayingTrack[0])
+            console.log(`this is here ${samplesFromPlayingTrack} track`);
+        }
+    }
 
     useEffect(() => {
         if (!accessToken) return;
