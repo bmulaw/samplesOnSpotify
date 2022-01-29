@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import useAuth from './useAuth';
+import useAuth from '../useAuth';
 import TrackSearchResult from './TrackSearchResult';
 import Player from './Player';
 import Samples from './Samples';
+import clientid from '../clientid'
 import { Container, Form } from 'react-bootstrap';
+import DisplaySamples from './DisplaySamples';
 import SpotifyWebApi from 'spotify-web-api-node';
+let client_id = clientid();
 
 const spotifyApi = new SpotifyWebApi({
-    clientId: "45c8cca7568346c09d2ae3e15488221c",
+    clientId: client_id
 })
 
 export default function Dashboard({ code }) {
@@ -26,8 +29,9 @@ export default function Dashboard({ code }) {
 
     const handleClick = () => {
         if (playingTrack.length !== 0) {
-            setSearch(samplesFromPlayingTrack[0])
-            console.log(`this is here ${samplesFromPlayingTrack} track`);
+            // setSearch(samplesFromPlayingTrack[0])
+            // console.log(`this is here ${samplesFromPlayingTrack} track`);
+            return <DisplaySamples samples={samplesFromPlayingTrack}/>;
         }
     }
 
@@ -82,13 +86,9 @@ export default function Dashboard({ code }) {
                      <TrackSearchResult track={track} key={track.uri} chooseTrack={chooseTrack}/>
                  ))}
         </div>
-        <div> <Player accessToken={accessToken} trackUri={playingTrack?.uri}/> </div>
-        {/* <div> <Samples playingTrack={playingTrack}/> </div> */}
-        
-            <button onClick={handleClick}>
-                See Samples
-            </button>
-        
+        <div> <Player accessToken={accessToken} trackUri={playingTrack?.uri}/> </div>        
+        <button onClick={() => {<DisplaySamples samples={samplesFromPlayingTrack}/>}}> See Samples Below </button>
+        <DisplaySamples samples={samplesFromPlayingTrack} code={accessToken}/>
         </Container>
     )
 }

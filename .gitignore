@@ -1,5 +1,6 @@
 # secrets
 client/src/config.js
+client/src/clientid.js
 server/.env
 
 # dependencies

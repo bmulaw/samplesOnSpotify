@@ -25,7 +25,12 @@ export default function Samples( playingTrack ) {
         const relations = data.response.song.song_relationships;
         for (let i = 0; i < relations.length; i++) {
             for (let j = 0; j < relations[i].songs.length; j++) {
-                const cleanedSong = relations[i].songs[j].full_title.replace(' by', '').replace(/\([^()]*\)/g, '').replace('The ', '').toLowerCase();
+                let currSample = relations[i].songs[j].full_title;
+                if (currSample.includes("&")) {
+                    let index = currSample.lastIndexOf("&");
+                    currSample = currSample.substring(0, index+1);  
+                }
+                const cleanedSong = currSample.replace(' by', '').replace(/\([^()]*\)/g, '').replace('The ', '').replace('&', '').toLowerCase();
                 songSamples.push(cleanedSong);
             }
         }
@@ -42,6 +47,7 @@ export default function Samples( playingTrack ) {
                 SampleSongs(songId)
                 .then((data) => {
                     sampledSongs = getSampledSongs(data.data);
+                    // console.log(sampledSongs);
                     resolve(sampledSongs)
                 }, (error) => {
                     reject(error);
