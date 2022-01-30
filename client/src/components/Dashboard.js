@@ -88,7 +88,7 @@ export default function Dashboard({ code }) {
         </div>
         <div> <Player accessToken={accessToken} trackUri={playingTrack?.uri}/> </div>        
         <button onClick={() => {<DisplaySamples samples={samplesFromPlayingTrack}/>}}> See Samples Below </button>
-        <DisplaySamples samples={samplesFromPlayingTrack} code={accessToken}/>
+        <DisplaySamples currPlayingSong = {playingTrack} samples={samplesFromPlayingTrack} code={accessToken}/>
         </Container>
     )
 }
