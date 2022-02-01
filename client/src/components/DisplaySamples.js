@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
 import GetSamplesListOnSpotify from "./GetSamplesListOnSpotify";
 
-export default function DisplaySamples({currPlayingSong, samples, code}) {    
-    const [pls, setPls] = useState([])
+export default function DisplaySamples({samples, code}) {    
+    const [samplesList, setSamplesList] = useState([])
 
     useEffect(() => {
         let spotifySongData = GetSamplesListOnSpotify(samples, code)
         spotifySongData.then(data => {
-            setPls(data);
+            setSamplesList(data);
         })
     }, [samples])
-    
+
     return (
         <div>
-            { pls.map(song => {
+            { samplesList? samplesList.map(song => {
                 return (<div key={song.songUri}>
-                        <a href={song.songUri}> {song.songName} </a>
+                        <a href={song.songUri}> {song.songName} - {song.artist}</a>
                         </div>);
-            })}
+            }): []}
         </div>
 
     )

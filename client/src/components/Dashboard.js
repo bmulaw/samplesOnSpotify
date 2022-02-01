@@ -17,22 +17,14 @@ export default function Dashboard({ code }) {
     const accessToken = useAuth(code);
     const [search, setSearch] = useState('');
     const [searchResults, setSearchResults] = useState([]);
-    const [playingTrack, setPlayingTrack] = useState([])
-    const [samplesFromPlayingTrack, setSampleFromPlayingTrack] = useState([])
+    const [playingTrack, setPlayingTrack] = useState([]);
+    const [samplesFromPlayingTrack, setSampleFromPlayingTrack] = useState([]);
     let samples; 
 
     const chooseTrack = async (track) => {
         setPlayingTrack(track);
-        samples = await Samples(track)
-        setSampleFromPlayingTrack(samples)
-    }
-
-    const handleClick = () => {
-        if (playingTrack.length !== 0) {
-            // setSearch(samplesFromPlayingTrack[0])
-            // console.log(`this is here ${samplesFromPlayingTrack} track`);
-            return <DisplaySamples samples={samplesFromPlayingTrack}/>;
-        }
+        samples = await Samples(track);
+        setSampleFromPlayingTrack(samples);
     }
 
     useEffect(() => {
@@ -87,8 +79,8 @@ export default function Dashboard({ code }) {
                  ))}
         </div>
         <div> <Player accessToken={accessToken} trackUri={playingTrack?.uri}/> </div>        
-        <button onClick={() => {<DisplaySamples samples={samplesFromPlayingTrack}/>}}> See Samples Below </button>
-        <DisplaySamples currPlayingSong = {playingTrack} samples={samplesFromPlayingTrack} code={accessToken}/>
+        <button> See Samples Below </button>
+        <DisplaySamples samples={samplesFromPlayingTrack} code={accessToken}/>
         </Container>
     )
 }
