@@ -47,7 +47,6 @@ export default function Samples( playingTrack ) {
                 SampleSongs(songId)
                 .then((data) => {
                     sampledSongs = getSampledSongs(data.data);
-                    // console.log(sampledSongs);
                     resolve(sampledSongs)
                 }, (error) => {
                     reject(error);
