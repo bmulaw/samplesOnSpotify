@@ -79,7 +79,7 @@ export default function Dashboard({ code }) {
                  ))}
         </div>
         <div> <Player accessToken={accessToken} trackUri={playingTrack?.uri}/> </div>        
-        <button> See Samples Below </button>
+        {/* <button> See Samples Below </button> */}
         <DisplaySamples samples={samplesFromPlayingTrack} code={accessToken}/>
         </Container>
     )
