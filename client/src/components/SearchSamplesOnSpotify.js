@@ -16,9 +16,10 @@ export default function SearchSamplesOnSpotify(sampledSong, code) {
             if (song) {
                 let songName = song.name.toLowerCase();
                 if (sampledSong.includes(songName)) {
-                    resolve({"songName": song.name,
+                    resolve({"title": song.name,
                             "artist": song.artists[0].name,
-                             "songUri": song.uri})}
+                             "uri": song.uri,
+                            "albumUrl": song.album.images[0].url})}
                 }}, (error) => {
                     reject(error);
             })
