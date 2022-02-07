@@ -8,9 +8,9 @@ export default function GetSamplesListOnSpotify(samples, code) {
         samples.forEach(sampledSong => {
             SearchSamplesOnSpotify(sampledSong, code)
             .then(data => {
-                if (!trackURI.includes(data.songUri)) {
+                if (!trackURI.includes(data.uri)) {
                     spotifySongData.push(data);
-                    trackURI.push(data.songUri);
+                    trackURI.push(data.uri);
                 }},resolve(spotifySongData))})
             })
 }   
