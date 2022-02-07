@@ -25,7 +25,7 @@ export default function Samples( playingTrack ) {
         const relations = data.response.song.song_relationships;
         for (let i = 0; i < relations.length; i++) {
             for (let j = 0; j < relations[i].songs.length; j++) {
-                let songName = relations[i].songs[j].title.replace('The ', '').toLowerCase();
+                let songName = relations[i].songs[j].title.replace('The ', '').replace(/\([^()]*\)/g, '').toLowerCase();
                 let artist = relations[i].songs[j].artist_names.toLowerCase();
                 if (artist.includes("&")) artist = artist.substring(0, artist.indexOf('&'));
                 songSamples.push(artist + " " + songName);

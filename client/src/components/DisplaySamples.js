@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GetSamplesListOnSpotify from "./GetSamplesListOnSpotify";
 
-export default function DisplaySamples({currPlayingTrack, samples, code}) {    
+export default function DisplaySamples({currPlayingTrack, setCurrPlayingTrack, samples, code}) {    
     const [samplesList, setSamplesList] = useState([])
     const [displaySamples, setDisplaySamples] = useState(false);
     const [samplesToDisplay, setSamplesToDisplay] = useState([]);
@@ -18,7 +18,7 @@ export default function DisplaySamples({currPlayingTrack, samples, code}) {
     }
 
     const handleChangeMusic = (newSong) => {
-        currPlayingTrack(newSong);
+        setCurrPlayingTrack(newSong);
     }
 
     useEffect(() => {
@@ -32,11 +32,15 @@ export default function DisplaySamples({currPlayingTrack, samples, code}) {
         }
     }, [displaySamples])
 
+    useEffect(() =>{
+        if (displaySamples) handleClick();
+    }, [currPlayingTrack])
+
 
     return (
         <div>  
             <br></br>
-            <button onClick={() => handleClick()}>{!displaySamples?"Click for Samples":"Hide Samples"}</button>
+            <button style={{width: "100%"}} onClick={() => handleClick()}>{!displaySamples?"Click for Samples":"Hide Samples"}</button>
             <br></br><br></br>
 
             {samplesList.length >0 && displaySamples ?
