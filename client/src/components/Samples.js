@@ -38,11 +38,11 @@ export default function Samples( playingTrack ) {
     }
     // https://www.geeksforgeeks.org/how-to-make-javascript-wait-for-a-api-request-to-return/
     // calls SongID component to get the song ID of current playing track
-        return new Promise(function (resolve, reject) {
+        return new Promise((resolve, reject) => {
             GetSongIdFromGenuis(currentPlayingMusic, songTitle)
             .then((res) => {
                 const songId = getCorrectSongId(res.data.response.hits);
-    
+
                 // another API call to get the samples from this songID
                 GetSamplesFromGenuis(songId)
                 .then((data) => {

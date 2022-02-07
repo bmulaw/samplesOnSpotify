@@ -4,7 +4,7 @@ export default function GetSamplesListOnSpotify(samples, code) {
     let trackURI = []
     let spotifySongData = [];
 
-    return new Promise(function (resolve, reject) {
+    return new Promise((resolve, reject) => {
         samples.forEach(sampledSong => {
             SearchSamplesOnSpotify(sampledSong, code)
             .then(data => {

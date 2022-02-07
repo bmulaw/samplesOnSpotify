@@ -45,8 +45,7 @@ export default function DisplaySamples({currPlayingTrack, samples, code}) {
                 onClick={() => handleChangeMusic(song)}> 
                 {samplesToDisplay?samplesToDisplay[index]: null} 
             </button> <br></br></div>)
-            })
-                 : null}
+            }): null}
         </div>
     )
 }
