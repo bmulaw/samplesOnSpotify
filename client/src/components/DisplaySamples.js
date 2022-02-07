@@ -25,8 +25,9 @@ export default function DisplaySamples({samples, code}) {
                                 </div>);
                     })}
                 </div>)
-    console.log(samplesToDisplay.props.children[0])
-                
+        console.log(samplesToDisplay.props.children[0])
+        } else {
+            samplesToDisplay = null;
         }
     }
 
@@ -35,10 +36,7 @@ export default function DisplaySamples({samples, code}) {
         <div>
             
         <button onClick={handleClick}>Click</button>
-        {displaySamples? 
-            console.log(displaySamples)
-            // return (<div> </div>)
-        : displaySamples}
+        {console.log(displaySamples)}
         </div>
     )
 }
