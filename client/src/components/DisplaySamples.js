@@ -41,7 +41,7 @@ export default function DisplaySamples({currPlayingTrack, samples, code}) {
 
             {samplesList.length >0 && displaySamples ?
                 samplesList.map((song,index) => {
-                return (<div><button style={{borderRadius: "8px", backgroundColor: "lightgreen"}} 
+                return (<div key={index}><button style={{borderRadius: "8px", backgroundColor: "lightgreen"}} 
                 onClick={() => handleChangeMusic(song)}> 
                 {samplesToDisplay?samplesToDisplay[index]: null} 
             </button> <br></br></div>)

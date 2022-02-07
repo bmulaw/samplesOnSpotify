@@ -10,7 +10,7 @@ export default function Samples( playingTrack ) {
     const getCorrectSongId = (data) => {
         let index = 0;
         for (let i = 0; i < data.length; i++) {
-            if(data[i].result.title.includes(songTitle)
+            if (data[i].result.title.includes(songTitle)
             && data[i].result.artist_names.includes(currentPlayingMusic['artist'])) {
                 index = i;
                 break;
@@ -25,13 +25,10 @@ export default function Samples( playingTrack ) {
         const relations = data.response.song.song_relationships;
         for (let i = 0; i < relations.length; i++) {
             for (let j = 0; j < relations[i].songs.length; j++) {
-                let currSample = relations[i].songs[j].full_title;
-                if (currSample.includes("&")) {
-                    let index = currSample.lastIndexOf("&");
-                    currSample = currSample.substring(0, index+1);  
-                }
-                const cleanedSong = currSample.replace(' by', '').replace(/\([^()]*\)/g, '').replace('The ', '').replace('&', '').toLowerCase();
-                songSamples.push(cleanedSong);
+                let songName = relations[i].songs[j].title.replace('The ', '').toLowerCase();
+                let artist = relations[i].songs[j].artist_names.toLowerCase();
+                if (artist.includes("&")) artist = artist.substring(0, artist.indexOf('&'));
+                songSamples.push(artist + " " + songName);
             }
         }
         return songSamples;
