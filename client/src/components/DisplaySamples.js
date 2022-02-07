@@ -35,7 +35,12 @@ export default function DisplaySamples({currPlayingTrack, samples, code}) {
             <br></br>
             <button onClick={() => handleClick()}>{!displaySamples?"Click for Samples":"Hide Samples"}</button>
             <br></br><br></br>
-            {samplesList.length >0 && <button style={{borderRadius: "8px", backgroundColor: "lightgreen"}}onClick={() => handleChangeMusic(samplesList[0])}> {samplesToDisplay} </button>}
+            {/* displays samples that can be clicked and played  */}
+            {samplesList.length >0 && displaySamples ?
+                <button style={{borderRadius: "8px", backgroundColor: "lightgreen"}} 
+                    onClick={() => handleChangeMusic(samplesList[0])}> 
+                    {samplesToDisplay?samplesToDisplay: null} 
+                </button> : null}
         </div>
     )
 }
