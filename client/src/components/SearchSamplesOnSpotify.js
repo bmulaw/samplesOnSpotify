@@ -9,7 +9,7 @@ const spotifyApi = new SpotifyWebApi({
 export default function SearchSamplesOnSpotify(sampledSong, code) {
     spotifyApi.setAccessToken(code)
     
-    return new Promise(function (resolve, reject) {
+    return new Promise((resolve, reject) => {
         spotifyApi.searchTracks(sampledSong)
         .then(res => {
             let song = res.body.tracks.items[0];
