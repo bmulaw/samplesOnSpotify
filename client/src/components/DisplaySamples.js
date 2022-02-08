@@ -46,9 +46,10 @@ export default function DisplaySamples({currPlayingTrack, setCurrPlayingTrack, s
                 samplesList.map((song,index) => {
                 return (
                 <div key={index} className="d-flex m-2 align-items-center" style={{ overflowY: "auto" , cursor: "pointer"}} onClick={() => handleChangeMusic(song)}>
-                    <img src={song.albumUrl} style={{ height: '64px', width: '64px', marginRight: '15px'}} />
-                    <div className="ml-3"> <div> {song.title} ({song.type})</div>
+                    <img src={song.albumUrl} style={{ height: '94px', width: '94px', marginRight: '15px'}} />
+                    <div className="ml-3"> <div> {song.title}</div>
                         <div className="text-muted">{song.artist}</div>
+                        <div className="text-muted" style={{fontsize: "2px"}}>({song.type})</div>
                         <br></br>
                     </div>
                 </div>)
