@@ -3,7 +3,7 @@ src/config.js
 src/clientid.js
 
 # dependencies
-node_modules
+node_modules/
 /.pnp
 .pnp.js
 
