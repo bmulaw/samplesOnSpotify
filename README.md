@@ -6,8 +6,6 @@ APIs: Spotify and Genuis
 ## Demo of the app:
 listen to the first 10 seconds of Favorite Song by Chance the Rapper (2013) and the first 5 seconds of Clean Up Woman by Betty Wright (1972) to notice the Sample.
 
-<img src='./demo.gif' title='Video Walkthrough' width='100%' height='100%' alt='Video Walkthrough' />
-
 ## To get the app running:
 
 1. make sure you have node.js installed (https://nodejs.org/en/)
