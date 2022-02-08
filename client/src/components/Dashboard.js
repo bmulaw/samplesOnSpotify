@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import useAuth from '../useAuth';
-import TrackSearchResult from './TrackSearchResult';
+import TrackSearchResult from './search/TrackSearchResult';
 import Player from './Player';
 import Samples from './Samples';
 import clientid from '../clientid'

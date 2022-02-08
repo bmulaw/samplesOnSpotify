@@ -1,5 +1,5 @@
 import SpotifyWebApi from 'spotify-web-api-node';
-import clientid from '../clientid'
+import clientid from '../../clientid'
 let client_id = clientid();
 
 const spotifyApi = new SpotifyWebApi({

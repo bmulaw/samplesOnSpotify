@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import GetSamplesListOnSpotify from "./GetSamplesListOnSpotify";
+import GetSamplesListOnSpotify from "./search/GetSamplesListOnSpotify";
 
 export default function DisplaySamples({currPlayingTrack, setCurrPlayingTrack, samples, code}) {    
     const [samplesList, setSamplesList] = useState([])
@@ -23,10 +23,9 @@ export default function DisplaySamples({currPlayingTrack, setCurrPlayingTrack, s
 
     useEffect(() => {
         if(displaySamples && samplesList.length>0)  {
-            const _toSetSamples = samplesList.map(song => {
+            setSamplesToDisplay(samplesList.map(song => {
                 return song.title + " by " + song.artist;
-            })
-            setSamplesToDisplay(_toSetSamples);
+            }));
         } else {
             setSamplesToDisplay([]);
         }
@@ -45,10 +44,14 @@ export default function DisplaySamples({currPlayingTrack, setCurrPlayingTrack, s
 
             {samplesList.length >0 && displaySamples ?
                 samplesList.map((song,index) => {
-                return (<div key={index}><button style={{borderRadius: "8px", backgroundColor: "lightgreen"}} 
-                onClick={() => handleChangeMusic(song)}> 
-                {samplesToDisplay?samplesToDisplay[index]: null} 
-            </button> <br></br></div>)
+                return (
+                <div key={index} className="d-flex m-2 align-items-center" style={{ overflowY: "auto" , cursor: "pointer"}} onClick={() => handleChangeMusic(song)}>
+                    <img src={song.albumUrl} style={{ height: '64px', width: '64px', marginRight: '15px'}} />
+                    <div className="ml-3"> <div> {song.title} </div>
+                        <div className="text-muted">{song.artist}</div>
+                        <br></br>
+                    </div>
+                </div>)
             }): null}
         </div>
     )

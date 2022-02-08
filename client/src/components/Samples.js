@@ -1,5 +1,5 @@
-import GetSamplesFromGenuis from './GetSamplesFromGenuis';
-import GetSongIdFromGenuis from './GetSongIdFromGenuis';
+import GetSamplesFromGenuis from './search/GetSamplesFromGenuis';
+import GetSongIdFromGenuis from './search/GetSongIdFromGenuis';
 
 export default function Samples( playingTrack ) {    
     if (playingTrack == 'undefined undefined') return;
