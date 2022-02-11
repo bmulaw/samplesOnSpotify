@@ -8,7 +8,7 @@ Backend is hosted on Heroku and Frontend is to be hosted on GitHub Pages
 Anytime you listen to a song on Spotify and you want to see its samples, click the "See Samples Below" button. You will be met with the songs that are sampled into the song, or were sampled by another song, or were interpolations/remix/cover of another song. You get the option to click and play those samples on the app allowing you to experience new music and enjoy the engineering behind the music you listen to. 
 
 
-Click picture to watch a video demonstration of the app on YouTube
+## Click picture to watch a video demonstration of the app on YouTube
 [![](thumbnail.jpeg)](https://youtu.be/as6JAZ-Bkak)
 
 
