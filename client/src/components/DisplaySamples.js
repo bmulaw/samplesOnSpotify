@@ -7,6 +7,7 @@ export default function DisplaySamples({currPlayingTrack, setCurrPlayingTrack, s
     const [samplesToDisplay, setSamplesToDisplay] = useState([]);
 
     useEffect(() => {
+        console.log(samples);
         let spotifySongData = GetSamplesListOnSpotify(samples, code)
         spotifySongData.then(data => {
             setSamplesList(data);
@@ -22,7 +23,7 @@ export default function DisplaySamples({currPlayingTrack, setCurrPlayingTrack, s
     }
 
     useEffect(() => {
-        if(displaySamples && samplesList.length>0)  {
+        if(displaySamples && samplesToDisplay.length>0)  {
             setSamplesToDisplay(samplesList.map(song => {
                 return song.title + " by " + song.artist;
             }));
