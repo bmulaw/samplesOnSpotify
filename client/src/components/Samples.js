@@ -2,7 +2,7 @@ import GetSamplesFromGenuis from './search/GetSamplesFromGenuis';
 import GetSongIdFromGenuis from './search/GetSongIdFromGenuis';
 
 export default function Samples( playingTrack ) {    
-    if (playingTrack == 'undefined undefined') return;
+    if (playingTrack === 'undefined undefined') return;
     let songTitle = playingTrack.title.replace(/\([^()]*\)/g, '');
     let currentPlayingMusic = songTitle + " " + playingTrack.artist;
     let sampledSongs;
