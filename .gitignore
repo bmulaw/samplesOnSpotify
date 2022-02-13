@@ -2,6 +2,7 @@
 client/src/config.js
 client/src/clientid.js
 server/.env
+.env
 
 # dependencies
 client/node_modules

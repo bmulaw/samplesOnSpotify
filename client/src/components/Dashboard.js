@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import env from "react-dotenv";
 import useAuth from '../useAuth';
-import TrackSearchResult from './search/TrackSearchResult';
 import Player from './Player';
 import Samples from './Samples';
-import clientid from '../clientid'
-import { Container, Form } from 'react-bootstrap';
 import DisplaySamples from './DisplaySamples';
+import TrackSearchResult from './search/TrackSearchResult';
+import { Container, Form } from 'react-bootstrap';
 import SpotifyWebApi from 'spotify-web-api-node';
-let client_id = clientid();
 
 const spotifyApi = new SpotifyWebApi({
-    clientId: client_id
+    clientId: env.CLIENT_ID
 })
 
 export default function Dashboard({ code }) {

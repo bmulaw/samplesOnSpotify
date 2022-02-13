@@ -1,9 +1,8 @@
 import SpotifyWebApi from 'spotify-web-api-node';
-import clientid from '../../clientid'
-let client_id = clientid();
+import env from "react-dotenv";
 
 const spotifyApi = new SpotifyWebApi({
-    clientId: client_id
+    clientId: env.CLIENT_ID
 })
 
 export default function SearchSamplesOnSpotify(sampledSong, code) {
