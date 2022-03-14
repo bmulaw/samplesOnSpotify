@@ -6,7 +6,7 @@ export default function DisplaySamples({currPlayingTrack, setCurrPlayingTrack, s
     const [displaySamples, setDisplaySamples] = useState(false);
 
     useEffect(() => {
-     if(samples.length) {
+     if (samples.length) {
         let spotifySongData = GetSamplesListOnSpotify(samples, code)
         spotifySongData.then(data => {
             setSamplesList(data);
@@ -31,8 +31,8 @@ export default function DisplaySamples({currPlayingTrack, setCurrPlayingTrack, s
         <div>  
             <br></br>
             <button style={{width: "100%"}} onClick={() => handleClick()}>{!displaySamples?"Click for Samples":"Hide Samples"}</button>
-            <br></br><br></br>
-          
+            <br/><br/>
+        
             {samplesList.length >0 && displaySamples ?
                 samplesList.map((song,index) => {
                 return (
